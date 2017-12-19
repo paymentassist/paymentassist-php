@@ -1,0 +1,13 @@
+{
+    "name": "paymentassist/paymentassist-php",
+    "description": "PHP SDK for the Payment Assist Partner API",
+    "keywords": ["paymentassist", "payment-assist.co.uk", "api", "payment assist"],
+    "license": "MIT",
+    "require": {
+        "php": ">=5.6",
+        "ext-curl": "*"
+    },
+    "autoload": {
+        "psr-0": {"PaymentAssist": "src/"}
+    }
+}
