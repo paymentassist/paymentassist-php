@@ -12,6 +12,13 @@ Workflow
 
 ![Payment Assist API Workflow](api-workflow.png?raw=true "API Workflow")
 
+Installation
+------------
+
+Install with Composer:
+
+`composer require paymentassist/paymentassist-php`
+
 Usage
 -----
 
