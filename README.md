@@ -5,8 +5,10 @@ PHP SDK for the [Payment Assist][1] Partner API.
 Dependencies
 ------------
 
-This is a lightweight and minimal client designed for easy drop-in to most code-bases. As such, the only requirement beside PHP itself is cURL.
-
+ * PHP >= 5.3
+ * PHP JSON extension
+ * PHP cURL extension
+ 
 Workflow
 --------
 
