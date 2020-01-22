@@ -14,12 +14,11 @@ class ApiClient {
     public static $userAgent = 'Payment Assist PHP Client';
     public static $serializer = array('json_encode', 'json_decode');
 
-    protected $_http_status = null;
-    protected $_credentials = array(
+    private static $_http_status = null;
+    private static $_credentials = array(
         'api_key' => null,
         'secret' => null
         );
-
 
     /**
      * Sets up a new PAapi instance
@@ -28,32 +27,32 @@ class ApiClient {
      * @return void
      */
     public function __construct($credentials = array()) {
-        $this->_credentials = $credentials;
+        self::$_credentials = $credentials;
     }
 
 
     /**
      * Generic request function
      *
-     * @param string $peth
+     * @param string $path
      * @param array $params
      * @return mixed
      */
     public function request($path, $method = 'POST', $params = null) {
         $options = array('path'=>$path, 'method'=>$method);
         if (!empty($params)) $options['params'] = $params;
-        $res = self::rest($options);
+        $res = self::_rest($options);
         return $res;
     }
 
 
     /**
-     * Generates authentication signature
+     * Generates authentication signature from supplied params
      *
-     * @param array $credentials
-     * @return array
+     * @param array $params
+     * @return string
      */
-    protected static function _generateSignature($params, $credentials) {
+    public function generateSignature($params) {
         ksort($params);
         $str = '';
         foreach($params as $k=>$v) {
@@ -62,7 +61,7 @@ class ApiClient {
             $str .= $k . '=' . $v . '&';
           }
         }
-        $signature = hash_hmac('sha256', $str, $credentials['secret'], false);
+        $signature = hash_hmac('sha256', $str, self::$_credentials['secret'], false);
         return $signature;
     }
 
@@ -74,7 +73,7 @@ class ApiClient {
      * @param array $credentials
      * @return mixed
      */
-    public function rest($options, $credentials = array()) {
+    private function _rest($options) {
         $defaults = array(
             'method' => 'POST',
             'url' => self::$apiUrl,
@@ -83,17 +82,14 @@ class ApiClient {
             );
 
         $options = $options + $defaults;
-
-        if (empty($credentials)) {
-            $credentials = $this->_credentials;
-        }
-
-        $signature = self::_generateSignature($options['params'], $credentials);
-
-        $options['params'] = $options['params'] + array(
-            'api_key' => $credentials['api_key'],
-            'signature' => $signature,
-            );
+        $signature = $this->generateSignature($options['params']);
+        $options['params'] = array_merge(
+            $options['params'],
+            array(
+                'api_key' => self::$_credentials['api_key'],
+                'signature' => $signature
+            )
+        );
 
         $curl_opts = array(
             CURLOPT_FOLLOWLOCATION => true,
@@ -112,7 +108,7 @@ class ApiClient {
         curl_setopt_array($curl, $curl_opts);
 
         $r = curl_exec($curl);
-        $this->_http_status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        self::$_http_status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
         if ($error = curl_error($curl)) {
             trigger_error('Payment Assist: curl error: ' . curl_error($curl), E_USER_WARNING);
@@ -127,7 +123,7 @@ class ApiClient {
      * @return integer
      */
     public function httpStatus() {
-        return $this->_http_status;
+        return self::$_http_status;
     }
 
 }
