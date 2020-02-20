@@ -1,28 +1,25 @@
-paymentassist-php
-=================
+# paymentassist-php
+
 PHP SDK for the [Payment Assist][1] Partner API.
 
-Dependencies
-------------
+## Dependencies
 
  * PHP >= 5.3
  * PHP JSON extension
  * PHP cURL extension
  
-Workflow
---------
+## Workflow
 
 ![Payment Assist API Workflow](api-workflow.png?raw=true "API Workflow")
 
-Installation
-------------
+## Installation
 
 Install with Composer:
 
 `composer require paymentassist/paymentassist-php`
 
-Usage
------
+## Usage
+
 ```php
 $credentials = array('api_key'=>'YOUR-KEY', 'secret'=>'YOUR-SECRET');
 $pa = new \PaymentAssist\ApiClient($credentials);
