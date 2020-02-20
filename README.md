@@ -23,12 +23,12 @@ Install with Composer:
 
 Usage
 -----
+```php
+$credentials = array('api_key'=>'YOUR-KEY', 'secret'=>'YOUR-SECRET');
+$pa = new \PaymentAssist\ApiClient($credentials);
 
-    $credentials = array('api_key'=>'YOUR-KEY', 'secret'=>'YOUR-SECRET');
-    $pa = new \PaymentAssist\ApiClient($credentials);
-
-    $result = $pa->request('/begin', 'POST', $params);
-
+$result = $pa->request('/begin', 'POST', $params);
+```
 Refer to API documentation for details of valid endpoints and required params.
 
  [1]: https://www.payment-assist.co.uk/
