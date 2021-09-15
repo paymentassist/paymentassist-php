@@ -1,0 +1,162 @@
+{
+    "operations": {
+        "BeginApplication": {
+            "httpMethod": "POST",
+            "uri": "/begin",
+            "description": "This endpoint commences the application process. A successful request will return a token (a 36-char UUID) along with a continuation URL. You should redirect the customer to this URL so they can complete the rest of the signup process and record the token for later use.",
+            "documentationUrl": "https://api-docs.payment-assist.co.uk/methods/begin",
+            "parameters": {
+                "api_key": {
+                    "description": "Your API key",
+                    "type": "string",
+                    "location": "json",
+                    "required": true
+                },
+                "signature": {
+                    "description": "Your request signature",
+                    "type": "string",
+                    "location": "json",
+                    "required": true
+                },
+                "order_id": {
+                    "description": "Your invoice/order ID - must be unique",
+                    "type": "string",
+                    "location": "json",
+                    "required": true
+                },
+                "amount": {
+                    "description": "Invoice value in pence (1000 = £10.00)",
+                    "type": "integer",
+                    "location": "json",
+                    "required": true
+                },
+                "email": {
+                    "description": "Customer email address",
+                    "type": "string",
+                    "location": "json",
+                    "required": true
+                },
+                "f_name": {
+                    "description": "Customer first name",
+                    "type": "string",
+                    "location": "json",
+                    "required": true
+                },
+                "s_name": {
+                    "description": "Customer last name",
+                    "type": "string",
+                    "location": "json",
+                    "required": true
+                },
+                "addr1": {
+                    "description": "Customer address line 1",
+                    "type": "string",
+                    "location": "json",
+                    "required": true
+                },
+                "postcode": {
+                    "description": "Customer postal/zip code",
+                    "type": "string",
+                    "location": "json",
+                    "required": true
+                },
+                "failure_url": {
+                    "description": "URL redirect destination on failure",
+                    "type": "string",
+                    "location": "json",
+                    "required": false
+                },
+                "success_url": {
+                    "description": "URL redirect destination on success",
+                    "type": "string",
+                    "location": "json",
+                    "required": false
+                },
+                "webhook_url": {
+                    "description": "Your webhook URL (see Webhooks)",
+                    "type": "string",
+                    "location": "json",
+                    "required": false
+                },
+                "plan_id": {
+                    "description": "The plan ID (See Plan Types). Required where account has access to multiple plan types and multi_plan is false",
+                    "type": "integer",
+                    "location": "json",
+                    "required": false
+                },
+                "reg_no": {
+                    "description": "Vehicle registration/license (if applicable)",
+                    "type": "string",
+                    "location": "json",
+                    "required": false
+                },
+                "description": {
+                    "description": "Description of service/goods",
+                    "type": "string",
+                    "location": "json",
+                    "required": false
+                },
+                "expiry": {
+                    "description": "Application expiry in seconds (default: 86400)",
+                    "type": "integer",
+                    "location": "json",
+                    "required": false
+                },
+                "addr2": {
+                    "description": "Customer address line 2",
+                    "type": "string",
+                    "location": "json",
+                    "required": false
+                },
+                "addr3": {
+                    "description": "Customer address line 3",
+                    "type": "string",
+                    "location": "json",
+                    "required": false
+                },
+                "town": {
+                    "description": "Customer town/city",
+                    "type": "string",
+                    "location": "json",
+                    "required": false
+                },
+                "county": {
+                    "description": "Customer county/state",
+                    "type": "string",
+                    "location": "json",
+                    "required": false
+                },
+                "telephone": {
+                    "description": "Customer mobile telephone number",
+                    "type": "numeric",
+                    "location": "json",
+                    "required": false
+                },
+                "send_email": {
+                    "description": "Send application link to customer via email. Default: false",
+                    "type": "boolean",
+                    "location": "json",
+                    "required": false
+                },
+                "send_sms": {
+                    "description": "Send application link to customer via SMS. Default: false",
+                    "type": "boolean",
+                    "location": "json",
+                    "required": false
+                },
+                "multi_plan": {
+                    "description": "If true the customer will see a list of all qualifying payment plans and be able to select themselves. Default: false",
+                    "type": "boolean",
+                    "location": "json",
+                    "required": false
+                },
+                "qr_code": {
+                    "description": "For offline-sessions where the customer is present (e.g. on POS or kiosk), if true we will return a base64-encoded QR code. Default: false",
+                    "type": "boolean",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        }
+    }
+}

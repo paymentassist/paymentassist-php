@@ -1,0 +1,25 @@
+{
+    "operations": {
+        "GetAccountConfigurationDetails": {
+            "httpMethod": "GET",
+            "uri": "/account",
+            "description": "This endpoint returns some account level information, including a breakdown of available Plan Types.",
+            "documentationUrl": "https://api-docs.payment-assist.co.uk/methods/account",
+            "responseModel": "getResponse",
+            "parameters": {
+                "api_key": {
+                    "description": "Your API key",
+                    "type": "string",
+                    "location": "query",
+                    "required": true
+                },
+                "signature": {
+                    "description": "Your request signature",
+                    "type": "string",
+                    "location": "query",
+                    "required": true
+                }
+            }
+        }
+    }
+}

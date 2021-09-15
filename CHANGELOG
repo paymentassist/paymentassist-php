@@ -1,0 +1,19 @@
+Payment-Assist Partner API changelog:
+
+2.0.0
+    - v2 Initial commit
+    - Added manifest files with services descriptions
+    - Added unit tests
+    - Introduced configuration and .env files
+    - Added custom exceptions
+    - Updated manifest file paths in config files and introduced 'default' for manifest path
+    - Introduced ResponseStruct class, added/updated unit tests, updated README.md file
+
+1.0.1
+    - Merge pull request #1 from bmilleare/publicgensig
+
+1.0.0
+    - Initial commit
+
+1.0
+    - Initial commit
