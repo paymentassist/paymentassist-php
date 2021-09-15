@@ -36,10 +36,11 @@ class BundleConfig
 
             if (file_exists($destination)) {
                 if (copy($file, $destination . DIRECTORY_SEPARATOR . basename($file))) {
-                    echo 'Successfully published ' . basename($file) . ' to ' . $destination . "\r\n";
+                    $message = 'Successfully published ';
                 } else {
-                    echo 'Failed puplishing ' . basename($file) . ' to ' . $destination . "\r\n";
+                    $message = 'Failed to publish ';
                 }
+                echo $message . basename($file) . ' to ' . $destination . "\r\n";
             }
         }
     }
