@@ -25,7 +25,22 @@ class BundleConfig
         ];
 
         foreach ($files as $file => $destination) {
-            copy($file, $destination . basename($file));
+            if (!file_exists($destination)) {
+                if (strstr($destination, 'config') !== false) {
+                    $destination = substr($destination, 0, -7);
+                }
+            }
+
+            $file        = realpath($file);
+            $destination = realpath($destination);
+
+            if (file_exists($destination)) {
+                if (copy($file, $destination . DIRECTORY_SEPARATOR . basename($file))) {
+                    echo 'Successfully published ' . basename($file) . ' to ' . $destination . "\r\n";
+                } else {
+                    echo 'Failed puplishing ' . basename($file) . ' to ' . $destination . "\r\n";
+                }
+            }
         }
     }
 }
