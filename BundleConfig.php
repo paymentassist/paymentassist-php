@@ -17,7 +17,16 @@ class BundleConfig
      */
     public static function publishConfig(Event $event)
     {
-        $packageDir = $event->getComposer()->getConfig()->get('vendor-dir') . '/../src/PaymentAssist/config';
+        $packageDir = $event->getComposer()->getConfig()->get('vendor-dir');
+
+        if (!file_exists($packageDir)) {
+            if (substr_count($packageDir, 'vendor') == 2) {
+                $packageDir = substr_replace($packageDir, '', strrpos($packageDir, 'vendor'));
+            }
+        } else {
+            $packageDir .= '/../';
+        }
+        $packageDir .= 'src/PaymentAssist/config';
 
         $files = [
             $packageDir . '/apiclient.php'  => __DIR__ . '/../../../config/',
