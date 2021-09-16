@@ -3,6 +3,9 @@
 namespace PaymentAssist\Helpers;
 
 use libphonenumber\{NumberParseException, PhoneNumberUtil};
+use RecursiveCallbackFilterIterator;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
 
 /**
  * Class Helpers
@@ -94,5 +97,39 @@ class Helpers
         }
 
         return $validNumber && $phoneNumberUtil->isValidNumberForRegion($phoneNumberObject, $regionCode);
+    }
+
+    /**
+     * @param string $dir
+     * @param string $file
+     *
+     * @return string|null
+     */
+    public static function searchFile(string $dir, string $file): ?string
+    {
+        $filter = function ($current, $key, $iterator) use ($file) {
+            if ($iterator->hasChildren()) {
+                return true;
+            }
+            if ($current->isFile()
+                && basename($key) == $file
+                && substr_count($current->getPathname(), 'vendor') == 1) {
+                return true;
+            }
+
+            return false;
+        };
+
+        /** @var callable $filter */
+        $files = new RecursiveIteratorIterator(
+            new RecursiveCallbackFilterIterator(
+                new RecursiveDirectoryIterator($dir), $filter
+            )
+        );
+        foreach ($files as $file) {
+            return $file->getRealpath();
+        }
+
+        return null;
     }
 }

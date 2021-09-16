@@ -40,6 +40,7 @@ final class ApiClient
 
     public const MANIFEST_FILE  = 'manifest.json';
     public const PARTNER_API_V1 = 'partner_api_v1';
+    public const CONFIG_FILE    = 'apiclient.php';
 
     /** @var ApiClient */
     private static $instance = null;
@@ -61,7 +62,7 @@ final class ApiClient
      */
     private function __construct(?array $config = null)
     {
-        $this->config           = $config;
+        $this->config           = $config ?? $this->fetchConfig();
         $this->resultSerializer = $this->getResultSerializer();
     }
 

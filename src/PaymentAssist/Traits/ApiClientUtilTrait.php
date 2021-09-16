@@ -9,8 +9,7 @@ use GuzzleHttp\Command\Guzzle\RequestLocation\QueryLocation;
 use PaymentAssist\{Helpers\Helpers, QuerySerializer, RequestSerializer, ResultSerializer};
 use PaymentAssist\Exception\{ApiClientMissingConfigurationException,
     ApiClientMissingManifestFileException,
-    ApiClientUnknownConnectionException
-};
+    ApiClientUnknownConnectionException};
 use Symfony\Component\Config\Exception\FileLocatorFileNotFoundException;
 use Symfony\Component\Config\FileLocator;
 
@@ -165,5 +164,15 @@ trait ApiClientUtilTrait
         }
 
         return $descriptionConfig;
+    }
+
+    /**
+     * @return array|null
+     */
+    private function fetchConfig(): ?array
+    {
+        $file = Helpers::searchFile(__DIR__ . '/../../../../../../', self::CONFIG_FILE);
+
+        return $file ? (include($file))['ApiClient'] : null;
     }
 }

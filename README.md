@@ -73,7 +73,9 @@ if ($response->isOK()) {
 ```
 In the above example `$config` variable contains a config structure which needs to be provided as an argument to `ApiClient::instance()` static method.
 
-This structure can be stored in the config section of your application. After installing the package you can publish an example config file. Composer script will copy the file `apiclient.php` to the `config` folder in the root folder of your app.
+This structure can be stored in the config section of your application. After installing the package you can publish an example config file. Composer script will copy the file `apiclient.php` to the `config` folder in the root folder of your app if it exists, otherwise it will copy the file to the root folder of your app.
+
+Config file contains the structure and the default config values which can be overridden by the values stored in the file `.apiclient.env` which will be copied to the root folder of your app.
 
 Refer to [API documentation][2] for details of valid endpoints and required params.
 
