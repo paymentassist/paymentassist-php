@@ -38,9 +38,12 @@ final class ApiClient
     public const USER_AGENT = 'Payment Assist PHP Client';
     public const VERSION    = 'v2.0.0';
 
+    public const APP_ROOT = __DIR__ . '/../../../../../';
+
     public const MANIFEST_FILE  = 'manifest.json';
     public const PARTNER_API_V1 = 'partner_api_v1';
     public const CONFIG_FILE    = 'apiclient.php';
+    public const ENV_FILE       = '.apiclient.env';
 
     /** @var ApiClient */
     private static $instance = null;

@@ -2,6 +2,7 @@
 
 namespace PaymentAssist\Traits;
 
+use Dotenv\Dotenv;
 use Exception;
 use Guzzle\Service\Loader\JsonLoader;
 use GuzzleHttp\Command\Guzzle\Operation;
@@ -171,7 +172,7 @@ trait ApiClientUtilTrait
      */
     private function fetchConfig(): ?array
     {
-        $file = Helpers::searchFile(__DIR__ . '/../../../../../../', self::CONFIG_FILE);
+        $file = Helpers::searchFile(self::APP_ROOT, self::CONFIG_FILE);
 
         return $file ? (include($file))['ApiClient'] : null;
     }
