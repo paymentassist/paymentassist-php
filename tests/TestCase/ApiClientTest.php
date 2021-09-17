@@ -84,7 +84,7 @@ final class ApiClientTest extends TestCase
 
     public function testApiClientInstance(): void
     {
-        $this->apiClient = ApiClient::instance();
+        $this->apiClient = ApiClient::instance($this->getTestConfig());
 
         $this->assertInstanceOf(ApiClient::class, $this->apiClient);
     }
@@ -166,7 +166,7 @@ final class ApiClientTest extends TestCase
      */
     public function testApiClientAccessEndpoint(): void
     {
-        $this->apiClient = ApiClient::instance(/*$this->getTestConfig()*/);
+        $this->apiClient = ApiClient::instance($this->getTestConfig());
         $this->apiClient->setConnection(ApiClient::PARTNER_API_V1);
 
         if ($this->mockApi()) {
