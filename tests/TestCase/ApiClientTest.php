@@ -10,7 +10,8 @@ use GuzzleHttp\{Handler\MockHandler, HandlerStack, Psr7\Response, Utils};
 use PaymentAssist\{ApiClient, Content};
 use PaymentAssist\Exception\{ApiClientMissingConfigurationException,
     ApiClientMissingManifestFileException,
-    ApiClientUnknownConnectionException
+    ApiClientUnknownConnectionException,
+    ApiClientUnknownOperationException
 };
 use PHPUnit\Framework\TestCase;
 use TestCase\Traits\ApiClientTestHelpersTrait;
@@ -139,6 +140,33 @@ final class ApiClientTest extends TestCase
      * @throws ApiClientMissingManifestFileException
      * @throws ApiClientUnknownConnectionException
      */
+    public function testApiClientUnknownOperationError(): void
+    {
+        $this->expectException(ApiClientUnknownOperationException::class);
+        $this->expectErrorMessage(
+            'PaymentAssist ApiClient: Unknown operation, check calling method and/or service description file'
+        );
+
+        $this->apiClient = ApiClient::instance($this->getTestConfig());
+        $this->apiClient->setConnection(ApiClient::PARTNER_API_V1);
+
+        if ($this->mockApi()) {
+            $this->apiClient->setHandlerStack(
+                HandlerStack::create(
+                    new MockHandler([new Response(200, [], '{}')])
+                )
+            );
+        }
+
+        /** @noinspection PhpUndefinedMethodInspection @phpstan-ignore-next-line */
+        $this->apiClient->NotDefinedOperationCall();
+    }
+
+    /**
+     * @throws ApiClientMissingConfigurationException
+     * @throws ApiClientMissingManifestFileException
+     * @throws ApiClientUnknownConnectionException
+     */
     public function testApiClientSetConnection(): void
     {
         $this->apiClient = ApiClient::instance($this->getTestConfig());
@@ -185,6 +213,8 @@ final class ApiClientTest extends TestCase
         $this->assertEquals(200, $response->getStatus());
         $this->assertEquals('OK', $response->getReason());
         $this->assertEquals('GET', $response->getRequestMethod());
+
+        $this->assertNull($response->getContent()->get('none.existent.key'));
     }
 
     /**

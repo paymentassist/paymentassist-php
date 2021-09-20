@@ -141,7 +141,9 @@ final class ApiClient
                                 'timeout'         => $this->getTimeout(),
                                 'allow_redirects' => true,
                             ],
-                            $this->hasHandlerStack() ? ['handler' => $this->getHandlerStack()] : []
+                            $this->hasHandlerStack() ? ['handler' => $this->getHandlerStack()] : [],
+                            !is_null($this->getVerifySSLCertificate())
+                                ? ['verify' => $this->getVerifySSLCertificate()] : []
                         )
                     ),
                     $this->getDescription(),

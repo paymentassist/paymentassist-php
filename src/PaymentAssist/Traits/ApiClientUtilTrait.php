@@ -2,7 +2,6 @@
 
 namespace PaymentAssist\Traits;
 
-use Dotenv\Dotenv;
 use Exception;
 use Guzzle\Service\Loader\JsonLoader;
 use GuzzleHttp\Command\Guzzle\Operation;

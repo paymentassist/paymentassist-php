@@ -38,6 +38,9 @@ trait ApiClientTrait
     /** @var HandlerStack|null */
     private $handlerStack;
 
+    /** @var boolean */
+    private $verifySSLCertificate;
+
     /**
      * @param array $config
      *
@@ -241,6 +244,8 @@ trait ApiClientTrait
 
     /**
      * @param HandlerStack $handlerStack
+     *
+     * @return ApiClient
      */
     public function setHandlerStack(HandlerStack $handlerStack): ApiClient
     {
@@ -274,4 +279,19 @@ trait ApiClientTrait
 
         return $this;
     }
+
+    /**
+     * @return bool|null
+     * @throws ApiClientMissingConfigurationException
+     */
+    public function getVerifySSLCertificate(): ?bool
+    {
+        if (empty($this->verifySSLCertificate)
+            && isset($this->getConfig()['verify_ssl_certificate'])) {
+            $this->verifySSLCertificate = $this->getConfig()['verify_ssl_certificate'];
+        }
+
+        return $this->verifySSLCertificate;
+    }
+
 }
