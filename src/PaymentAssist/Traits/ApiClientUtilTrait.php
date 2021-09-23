@@ -6,10 +6,17 @@ use Exception;
 use Guzzle\Service\Loader\JsonLoader;
 use GuzzleHttp\Command\Guzzle\Operation;
 use GuzzleHttp\Command\Guzzle\RequestLocation\QueryLocation;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\MessageFormatter;
+use GuzzleHttp\Middleware;
+use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
 use PaymentAssist\{Helpers\Helpers, QuerySerializer, RequestSerializer, ResultSerializer};
 use PaymentAssist\Exception\{ApiClientMissingConfigurationException,
     ApiClientMissingManifestFileException,
-    ApiClientUnknownConnectionException};
+    ApiClientUnknownConnectionException
+};
+use Psr\Log\LogLevel;
 use Symfony\Component\Config\Exception\FileLocatorFileNotFoundException;
 use Symfony\Component\Config\FileLocator;
 
@@ -174,5 +181,34 @@ trait ApiClientUtilTrait
         $file = Helpers::searchFile(self::APP_ROOT, self::CONFIG_FILE);
 
         return $file ? (include($file))['ApiClient'] : null;
+    }
+
+    /**
+     * @throws ApiClientMissingConfigurationException
+     */
+    private function setUpLogging(): void
+    {
+        if ($this->getConfig()['debug']) {
+            $logger = new Logger($this->getConfig()['log']['log_app_name']);
+            $logger->pushHandler(
+                new StreamHandler(
+                    $this->getConfig()['log']['log_file_path']
+                    . DIRECTORY_SEPARATOR
+                    . $this->getConfig()['log']['log_file_name']
+                )
+            );
+
+            if (!$this->hasHandlerStack()) {
+                $this->setHandlerStack(HandlerStack::create());
+            }
+            $stack = $this->getHandlerStack();
+            $stack->push(
+                Middleware::log(
+                    $logger,
+                    new MessageFormatter($this->getConfig()['log']['log_format']),
+                    $this->getConfig()['log']['debug'] ? LogLevel::DEBUG : LogLevel::INFO
+                )
+            );
+        }
     }
 }

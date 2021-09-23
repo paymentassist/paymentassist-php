@@ -38,7 +38,8 @@ $config = [
         'log_file_name'               => 'apiclient.log',
         'log_file_path'               => 'PATH-TO-YOUR-LOGS-FOLDER',
         'log_request_before_response' => true,
-        'log_app_name'                => 'pa_partner_api',
+        'log_app_name'                => 'ApiClient',
+        'log_format'                  => null, // if null, a default format from GuzzleHttp\MessageFormatter class will be used
     ],
     'verify_ssl_certificate' => true,
     'default'                => 'partner_api_v1',
