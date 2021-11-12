@@ -55,11 +55,11 @@ if ($client instanceof ApiClient) {
             print_r($response->getContent()->getData()->getStatus());
             echo PHP_EOL;
         } else {
-            echo($response->getStatus() . ' ' . $response->getReason());
-            echo('There was an error while calling the API: ' . PHP_EOL . $response->getContents()->getMessage());
+            echo $response->getStatus() . ' ' . $response->getReason();
+            echo 'There was an error while calling the API: ' . PHP_EOL . $response->getContents()->getMessage();
         }
     } else {
-        echo($response->getStatus() . ' ' . $response->getReason());
-        echo('There was an error while calling the API: ' . PHP_EOL . $response->getContents()->getMessage());
+        echo $response->getStatus() . ' ' . $response->getReason();
+        echo 'There was an error while calling the API: ' . PHP_EOL . $response->getContents()->getMessage();
     }
 }

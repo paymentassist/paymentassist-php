@@ -31,9 +31,8 @@ if ($client instanceof ApiClient) {
         echo 'Data property (Content object) retrieve the field value directly: ' . PHP_EOL;
         print_r($response->getContent()->getData()->getPlans()->toArray());
         echo PHP_EOL;
-        echo '--------------------------------------------------------------------------------------------------------------' . PHP_EOL;
     } else {
-        echo($response->getStatus() . ' ' . $response->getReason());
-        echo('There was an error while calling the API: ' . PHP_EOL . $response->getContents()->getMessage());
+        echo $response->getStatus() . ' ' . $response->getReason();
+        echo 'There was an error while calling the API: ' . PHP_EOL . $response->getContents()->getMessage();
     }
 }
