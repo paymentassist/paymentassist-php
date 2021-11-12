@@ -9,18 +9,12 @@ namespace PaymentAssist;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Command\{Exception\CommandException, Guzzle\Description, Guzzle\GuzzleClient};
-use GuzzleHttp\HandlerStack;
-use GuzzleHttp\MessageFormatter;
-use GuzzleHttp\Middleware;
-use Monolog\Handler\StreamHandler;
-use Monolog\Logger;
 use PaymentAssist\Exception\{ApiClientMissingConfigurationException,
     ApiClientMissingManifestFileException,
     ApiClientUnknownConnectionException,
     ApiClientUnknownOperationException,
 };
 use PaymentAssist\Traits\{ApiClientTrait, ApiClientUtilTrait};
-use Psr\Log\LogLevel;
 use stdClass;
 use Throwable;
 

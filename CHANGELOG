@@ -8,6 +8,7 @@ Payment-Assist Partner API changelog:
     - Added custom exceptions
     - Updated manifest file paths in config files and introduced 'default' for manifest path
     - Introduced ResponseStruct class, added/updated unit tests, updated README.md file
+    - Added some usage examples
 
 1.0.1
     - Merge pull request #1 from bmilleare/publicgensig
