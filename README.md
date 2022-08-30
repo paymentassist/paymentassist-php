@@ -16,7 +16,7 @@ PHP SDK for the [Payment Assist][1] Partner API.
 
 Install with Composer:
 
-`composer require paymentassist/paymentassist-php`
+`composer require paymentassist/paymentassist-php:dev-v2`
 
 ## Publish configuration files
 
@@ -80,7 +80,7 @@ Config file contains the structure and the default config values which can be ov
 
 Refer to [API documentation][2] for details of valid endpoints and required params.
 
-### Contributing
+## Contributing
 
 We welcome contributions. There are several ways to help out:
 
