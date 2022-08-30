@@ -1,0 +1,48 @@
+{
+    "operations": {
+        "ObtainPreApproval": {
+            "httpMethod": "POST",
+            "uri": "/preapproval",
+            "description": "This endpoint allows you to pre-check the eligibility of a customer. Pre-approval success simply means the customer has passed our internal checks, they will still need to have funds available to cover their deposit payment for the application to ultimately be successful.",
+            "documentationUrl": "https://api-docs.payment-assist.co.uk/methods/preapproval",
+            "parameters": {
+                "api_key": {
+                    "description": "Your API key",
+                    "type": "string",
+                    "location": "json",
+                    "required": true
+                },
+                "signature": {
+                    "description": "Your request signature",
+                    "type": "string",
+                    "location": "json",
+                    "required": true
+                },
+                "f_name": {
+                    "description": "Customer first name",
+                    "type": "string",
+                    "location": "json",
+                    "required": true
+                },
+                "s_name": {
+                    "description": "Customer last name",
+                    "type": "string",
+                    "location": "json",
+                    "required": true
+                },
+                "addr1": {
+                    "description": "Customer address line 1",
+                    "type": "string",
+                    "location": "json",
+                    "required": true
+                },
+                "postcode": {
+                    "description": "Customer postal/zip code",
+                    "type": "string",
+                    "location": "json",
+                    "required": true
+                }
+            }
+        }
+    }
+}

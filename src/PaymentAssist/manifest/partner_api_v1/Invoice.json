@@ -1,0 +1,42 @@
+{
+    "operations": {
+        "UploadInvoiceToCompletedApplication": {
+            "httpMethod": "POST",
+            "uri": "/invoice",
+            "description": "This endpoint allows you to upload an invoice corresponding to a previously completed application. Applications that are not yet completed will return HTTP 404.",
+            "documentationUrl": "https://api-docs.payment-assist.co.uk/methods/invoice",
+            "parameters": {
+                "api_key": {
+                    "description": "Your API key",
+                    "type": "string",
+                    "location": "json",
+                    "required": true
+                },
+                "signature": {
+                    "description": "Your request signature",
+                    "type": "string",
+                    "location": "json",
+                    "required": true
+                },
+                "token": {
+                    "description": "The token returned from the /begin endpoint",
+                    "type": "string",
+                    "location": "json",
+                    "required": true
+                },
+                "filetype": {
+                    "description": "The file type (accepted: pdf, html, txt, doc, xls)",
+                    "type": "string",
+                    "location": "json",
+                    "required": true
+                },
+                "filedata": {
+                    "description": "The base64 encoded file",
+                    "type": "string",
+                    "location": "json",
+                    "required": true
+                }
+            }
+        }
+    }
+}

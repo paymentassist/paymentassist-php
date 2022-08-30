@@ -1,0 +1,48 @@
+{
+    "operations": {
+        "UpdateExistingApplication": {
+            "httpMethod": "POST",
+            "uri": "/update",
+            "description": "This endpoint allows you to update parameters within an existing application.",
+            "documentationUrl": "https://api-docs.payment-assist.co.uk/methods/update",
+            "parameters": {
+                "api_key": {
+                    "description": "Your API key",
+                    "type": "string",
+                    "location": "json",
+                    "required": true
+                },
+                "signature": {
+                    "description": "Your request signature",
+                    "type": "string",
+                    "location": "json",
+                    "required": true
+                },
+                "token": {
+                    "description": "The application token (received from /begin endpoint)",
+                    "type": "string",
+                    "location": "json",
+                    "required": true
+                },
+                "order_id": {
+                    "description": "Your new Order ID. Application must be in completed status",
+                    "type": "string",
+                    "location": "json",
+                    "required": false
+                },
+                "expiry": {
+                    "description": "Your new expiry time, in seconds from request time. Application must be in pending, in_progress or pending_capture status",
+                    "type": "integer",
+                    "location": "json",
+                    "required": false
+                },
+                "amount": {
+                    "description": "The new loan amount, in pence. Application must be in pending, in_progress or pending_capture status.",
+                    "type": "integer",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "operations": {
+        "CaptureApplication": {
+            "httpMethod": "POST",
+            "uri": "/capture",
+            "description": "This endpoint allows you to capture an application in pending_capture status.",
+            "documentationUrl": "https://api-docs.payment-assist.co.uk/methods/capture",
+            "parameters": {
+                "api_key": {
+                    "description": "Your API key",
+                    "type": "string",
+                    "location": "json",
+                    "required": true
+                },
+                "signature": {
+                    "description": "Your request signature",
+                    "type": "string",
+                    "location": "json",
+                    "required": true
+                },
+                "token": {
+                    "description": "The token (UUID) returned from /begin endpoint",
+                    "type": "string",
+                    "location": "json",
+                    "required": true
+                }
+            }
+        }
+    }
+}

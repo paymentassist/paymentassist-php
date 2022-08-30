@@ -1,0 +1,42 @@
+{
+    "operations": {
+        "GetPlanBreakdown": {
+            "httpMethod": "POST",
+            "uri": "/plan",
+            "description": "This endpoint accepts a transaction amount and optional plan ID + term length. It returns a full plan schedule including payment amounts and dates.",
+            "documentationUrl": "https://api-docs.payment-assist.co.uk/methods/plan",
+            "parameters": {
+                "api_key": {
+                    "description": "Your API key",
+                    "type": "string",
+                    "location": "json",
+                    "required": true
+                },
+                "signature": {
+                    "description": "Your request signature",
+                    "type": "string",
+                    "location": "json",
+                    "required": true
+                },
+                "amount": {
+                    "description": "Invoice value in pence (1000 = £10.00)",
+                    "type": "integer",
+                    "location": "json",
+                    "required": true
+                },
+                "plan_id": {
+                    "description": "The plan ID, if empty then your account default is used",
+                    "type": "integer",
+                    "location": "json",
+                    "required": false
+                },
+                "plan_length": {
+                    "description": "The length of the payment plan (must correspond to those available on plan_id)",
+                    "type": "integer",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        }
+    }
+}

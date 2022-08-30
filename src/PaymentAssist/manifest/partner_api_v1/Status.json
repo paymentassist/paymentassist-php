@@ -1,0 +1,30 @@
+{
+    "operations": {
+        "GetApplicationStatus": {
+            "httpMethod": "GET",
+            "uri": "/status",
+            "description": "This endpoint allows you to check the status of an existing application. You should pass the token received from the /begin endpoint.",
+            "documentationUrl": "https://api-docs.payment-assist.co.uk/methods/status",
+            "parameters": {
+                "api_key": {
+                    "description": "Your API key",
+                    "type": "string",
+                    "location": "query",
+                    "required": true
+                },
+                "signature": {
+                    "description": "Your request signature",
+                    "type": "string",
+                    "location": "query",
+                    "required": true
+                },
+                "token": {
+                    "description": "The token (UUID) returned from /begin endpoint",
+                    "type": "string",
+                    "location": "query",
+                    "required": true
+                }
+            }
+        }
+    }
+}
