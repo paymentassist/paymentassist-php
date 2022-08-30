@@ -138,7 +138,11 @@ final class ApiClient
                         array_merge(
                             [
                                 'base_uri'        => $this->getBaseUri(),
-                                'headers'         => ['User-Agent' => $this->getUserAgentName()],
+                                'headers'         => array_merge(
+                                    ['User-Agent' => $this->getUserAgentName()],
+                                    !is_null($this->getOriginString())
+                                        ? ['X-Origin' => $this->getOriginString()] : []
+                                ),
                                 'timeout'         => $this->getTimeout(),
                                 'allow_redirects' => true,
                             ],

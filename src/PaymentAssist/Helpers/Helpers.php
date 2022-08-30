@@ -24,12 +24,13 @@ class Helpers
     public static function generateSignature(array $params, array $credentials): string
     {
         ksort($params);
+        $params = array_change_key_case($params, CASE_UPPER);
+
         $str = '';
         foreach ($params as $k => $v) {
-            $k = strtoupper($k);
-            if ($k !== 'SIGNATURE' && $k !== 'API_KEY') {
-                $str .= $k . '=' . $v . '&';
-            }
+          if (!in_array($k, ['SIGNATURE', 'API_KEY'])) {
+            $str .= sprintf('%s=%s&', $k, $v);
+          }
         }
 
         return hash_hmac('sha256', $str, $credentials['secret'], false);

@@ -31,7 +31,13 @@
                     "required": false
                 },
                 "expiry": {
-                    "description": "Your new expiry time, in seconds from request time. Application must be in pending or in progress status",
+                    "description": "Your new expiry time, in seconds from request time. Application must be in pending, in_progress or pending_capture status",
+                    "type": "integer",
+                    "location": "json",
+                    "required": false
+                },
+                "amount": {
+                    "description": "The new loan amount, in pence. Application must be in pending, in_progress or pending_capture status.",
                     "type": "integer",
                     "location": "json",
                     "required": false

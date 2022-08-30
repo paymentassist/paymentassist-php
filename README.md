@@ -80,5 +80,13 @@ Config file contains the structure and the default config values which can be ov
 
 Refer to [API documentation][2] for details of valid endpoints and required params.
 
+### Contributing
+
+We welcome contributions. There are several ways to help out:
+
+* Create an issue on GitHub, if you have found a bug.
+* Write patches for open bugs/feature issues, preferably with test cases included. Please fork our repo, make your changes in a new branch and then open a pull request ensuring the correct target branch.
+* Contribute to the [documentation][2]
+
 [1]: https://www.payment-assist.co.uk
 [2]: https://api-docs.payment-assist.co.uk

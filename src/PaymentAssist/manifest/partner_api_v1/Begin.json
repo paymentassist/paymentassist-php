@@ -155,6 +155,12 @@
                     "type": "boolean",
                     "location": "json",
                     "required": false
+                },
+                "auto_capture": {
+                    "description": "Use auto-capture (collect deposit and set up plan immediately). Default: true.",
+                    "type": "boolean",
+                    "location": "json",
+                    "required": false
                 }
             }
         }

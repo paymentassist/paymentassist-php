@@ -24,6 +24,9 @@ trait ApiClientTrait
     private $secret;
 
     /** @var string */
+    private $originString;
+
+    /** @var string */
     private $connection;
 
     /** @var string */
@@ -81,6 +84,26 @@ trait ApiClientTrait
         }
 
         return $this->secret;
+    }
+
+    /**
+     * @param string $origin
+     *
+     * @return ApiClient
+     */
+    public function setOriginString(string $origin): ApiClient
+    {
+        $this->originString = $origin;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getOriginString()
+    {
+        return $this->originString;
     }
 
     /**
