@@ -88,5 +88,9 @@ We welcome contributions. There are several ways to help out:
 * Write patches for open bugs/feature issues, preferably with test cases included. Please fork our repo, make your changes in a new branch and then open a pull request ensuring the correct target branch.
 * Contribute to the [documentation][2]
 
+## Support
+
+For integrations support, please email [itsupport@payment-assist.co.uk](mailto:itsupport@payment-assist.co.uk).
+
 [1]: https://www.payment-assist.co.uk
 [2]: https://api-docs.payment-assist.co.uk
