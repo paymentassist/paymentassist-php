@@ -1,3 +1,8 @@
+<div align="center">
+:loudspeaker: <strong><a href="https://github.com/paymentassist/paymentassist-php/tree/v2">paymentassist-php v2</a> is now available in preview</strong>.<br>We recommend you use this version of the SDK for all new integration.
+</div>
+<hr>
+
 # paymentassist-php
 
 PHP SDK for the [Payment Assist][1] Partner API.
