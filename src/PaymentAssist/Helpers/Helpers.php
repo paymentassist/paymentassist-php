@@ -28,12 +28,12 @@ class Helpers
 
         $str = '';
         foreach ($params as $k => $v) {
-          if (!in_array($k, ['SIGNATURE', 'API_KEY'])) {
-            $str .= sprintf('%s=%s&', $k, $v);
-          }
+            if (!in_array($k, ['SIGNATURE', 'API_KEY'])) {
+                $str .= sprintf('%s=%s&', $k, $v);
+            }
         }
 
-        return hash_hmac('sha256', $str, $credentials['secret'], false);
+        return hash_hmac('sha256', $str, $credentials['secret']);
     }
 
     /**
@@ -70,7 +70,8 @@ class Helpers
         /** @var callable $filter */
         $files = new RecursiveIteratorIterator(
             new RecursiveCallbackFilterIterator(
-                new RecursiveDirectoryIterator($dir), $filter
+                new RecursiveDirectoryIterator($dir),
+                $filter
             )
         );
         foreach ($files as $file) {

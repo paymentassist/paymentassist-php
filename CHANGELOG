@@ -1,5 +1,8 @@
 Payment-Assist Partner API changelog:
 
+2.0.1
+    - Added missing Update.json file to manifest.json so the method is discoverable by the ApiClient
+
 2.0.0
     - v2 Initial commit
     - Added manifest files with services descriptions

@@ -25,6 +25,7 @@ use Throwable;
  *
  * @method Response GetAccountConfigurationDetails(mixed[] $args = [])
  * @method Response BeginApplication(mixed[] $args = [])
+ * @method Response CaptureTransaction(mixed[] $args = [])
  * @method Response UploadInvoiceToCompletedApplication(mixed[] $args = [])
  * @method Response GetPlanBreakdown(mixed[] $args = [])
  * @method Response ObtainPreApproval(mixed[] $args = [])
@@ -36,7 +37,7 @@ final class ApiClient
     use ApiClientUtilTrait, ApiClientTrait;
 
     public const USER_AGENT = 'Payment Assist PHP Client';
-    public const VERSION    = 'v2.0.0';
+    public const VERSION    = 'v2.0.1';
 
     public const APP_ROOT = __DIR__ . '/../../../../../';
 
