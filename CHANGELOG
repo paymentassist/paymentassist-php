@@ -1,5 +1,9 @@
 Payment-Assist Partner API changelog:
 
+2.0.2
+    - Fixed isOK method to return true for all 2xx http codes, not only 200 OK
+    - Updated description in Capture.json manifest file
+
 2.0.1
     - Added missing Update.json file to manifest.json so the method is discoverable by the ApiClient
 

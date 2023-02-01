@@ -177,7 +177,7 @@ final class Response
      */
     public function isOK(): bool
     {
-        return $this->status === 200 && $this->reason === 'OK';
+        return $this->status >= 200 && $this->status < 300;
     }
 
     /**

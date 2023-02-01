@@ -3,7 +3,7 @@
         "CaptureTransaction": {
             "httpMethod": "POST",
             "uri": "/capture",
-            "description": "This endpoint allows you to capture a transaction on a pending application.",
+            "description": "This endpoint allows you to capture an application that's currently in pending_capture state. See Auto Capture for more information.",
             "documentationUrl": "https://api-docs.payment-assist.co.uk/methods/capture",
             "parameters": {
                 "api_key": {
