@@ -143,7 +143,7 @@ final class ApiClientTest extends TestCase
     public function testApiClientUnknownOperationError(): void
     {
         $this->expectException(ApiClientUnknownOperationException::class);
-        $this->expectErrorMessage(
+        $this->expectExceptionMessage(
             'PaymentAssist ApiClient: Unknown operation, check calling method and/or service description file'
         );
 

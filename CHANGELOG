@@ -1,5 +1,9 @@
 Payment-Assist Partner API changelog:
 
+2.0.3
+    - Updated one of the tests, replaced deprecated assertion. Changed the source of one of the packages to the company
+      repository
+
 2.0.2
     - Fixed isOK method to return true for all 2xx http codes, not only 200 OK
     - Updated description in Capture.json manifest file

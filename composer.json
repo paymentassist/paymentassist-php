@@ -21,20 +21,26 @@
             "email": "radek@payment-assist.co.uk"
         }
     ],
+    "repositories": [
+        {
+            "type": "github",
+            "url": "git@github.com:paymentassist/guzzle-description-loader"
+        }
+    ],
     "require": {
         "php": ">=7.2",
-        "guzzlehttp/guzzle": "^7.3",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^7.5",
         "guzzlehttp/guzzle-services": "^1.3",
-        "gimler/guzzle-description-loader": "^0.0.4",
+        "paymentassist/guzzle-description-loader": "^0.0.6",
         "dflydev/dot-access-data": "^3.0",
         "giggsey/libphonenumber-for-php": "^8.12",
         "rtheunissen/guzzle-log-middleware": "^1.0",
-        "ext-curl": "*",
-        "ext-json": "*",
         "monolog/monolog": "^2.3"
     },
     "require-dev": {
-        "phpunit/phpunit": "~8.5.0 || ^9.3",
+        "phpunit/phpunit": "^9.6",
         "squizlabs/php_codesniffer": "*",
         "phpstan/phpstan": "^0.12.99",
         "nesbot/carbon": "^2.53"
@@ -60,5 +66,6 @@
     "scripts-descriptions": {
         "publish-config": "Publishes PaymentAssist ApiClient configuration file in <app>/config and environment file in <app>"
     },
+    "prefer-stable": true,
     "minimum-stability": "stable"
 }
