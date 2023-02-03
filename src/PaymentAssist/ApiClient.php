@@ -2,7 +2,7 @@
 
 /**
  * Payment Assist PHP-SDK
- * v2.0.2
+ * v2.0.3
  */
 
 namespace PaymentAssist;
@@ -37,7 +37,7 @@ final class ApiClient
     use ApiClientUtilTrait, ApiClientTrait;
 
     public const USER_AGENT = 'Payment Assist PHP Client';
-    public const VERSION    = 'v2.0.2';
+    public const VERSION    = 'v2.0.3';
 
     public const APP_ROOT = __DIR__ . '/../../../../../';
 
