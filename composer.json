@@ -33,11 +33,11 @@
         "ext-json": "*",
         "guzzlehttp/guzzle": "^7.5",
         "guzzlehttp/guzzle-services": "^1.3",
-        "paymentassist/guzzle-description-loader": "^0.0.6",
+        "paymentassist/guzzle-description-loader": "^0.0.7",
         "dflydev/dot-access-data": "^3.0",
         "giggsey/libphonenumber-for-php": "^8.12",
         "rtheunissen/guzzle-log-middleware": "^1.0",
-        "monolog/monolog": "^2.3"
+        "monolog/monolog": "^2.3 | ^3.5"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.6",
