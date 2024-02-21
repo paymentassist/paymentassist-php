@@ -2,6 +2,10 @@
 
 PHP SDK for the [Payment Assist][1] Partner API.
 
+> [!NOTE]
+> <strong>paymentassist-php v2 is now the default version</strong>. For legacy integrations, please see the [v1 branch](https://github.com/paymentassist/paymentassist-php/tree/v1).
+
+
 ## Dependencies
 
 * PHP >= 7.2
@@ -10,7 +14,7 @@ PHP SDK for the [Payment Assist][1] Partner API.
 
 ## Workflow
 
-![Payment Assist API Workflow](api-workflow.png?raw=true "API Workflow")
+![Payment Assist API Workflow](https://1979817456-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LB0_w9C7uFYYWDZcixr%2F-MTMLOXG5c0Wju4XPWoM%2F-MTMLRe04jbQiPBJ8ctt%2FAPI%20web-flow%20(5).png?alt=media&token=c05f973e-74ba-4abf-addd-29b7f7380edb "API Workflow")
 
 ## Installation
 
