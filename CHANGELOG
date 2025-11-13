@@ -1,5 +1,10 @@
 Payment-Assist Partner API changelog:
 
+2.1.0
+    - Added dob field on /begin
+    - Added tests for last_accessed_at on /status
+    - Fixed some tests
+
 2.0.3
     - Updated one of the tests, replaced deprecated assertion. Changed the source of one of the packages to the company
       repository

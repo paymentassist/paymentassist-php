@@ -26,7 +26,7 @@ trait ApiClientTestHelpersTrait
             'default'                => 'partner_api_v1',
             'connections'            => [
                 'partner_api_v1' => [
-                    'base_uri'               => 'http://api.pa.local',
+                    'base_uri'               => 'https://api.pa.local',
                     'manifest_path'          => 'default',
                     'api_key'                => '7gx3c8el33tfhxio',
                     'secret'                 => 'dev_4dakjdrpxp1pw4kgrrhq0c6k1jq',
