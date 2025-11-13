@@ -564,7 +564,7 @@ final class ApiClientTest extends TestCase
                 'msg'    => null,
                 'data'   => [
                     'token' => $token,
-                    'url'   => 'https://app.demo.payassi.st/loans/apply/' . $token,
+                    'url'   => 'http://app.pa.local/loans/apply/' . $token,
                 ],
             ]
         );
