@@ -161,6 +161,12 @@
                     "type": "boolean",
                     "location": "json",
                     "required": false
+                },
+                "dob": {
+                    "description": "The customer's date of birth in YYYY-MM-DD format",
+                    "type": "string",
+                    "location": "json",
+                    "required": false
                 }
             }
         }

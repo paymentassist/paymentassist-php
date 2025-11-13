@@ -506,6 +506,7 @@ final class ApiClientTest extends TestCase
                 'send_sms'    => false,
                 'multi_plan'  => false,
                 'qr_code'     => false,
+                'dob'         => '2000-12-25'
             ]
         );
 
@@ -563,7 +564,7 @@ final class ApiClientTest extends TestCase
                 'msg'    => null,
                 'data'   => [
                     'token' => $token,
-                    'url'   => 'http://app.pa.local/loans/apply/' . $token,
+                    'url'   => 'https://app.demo.payassi.st/loans/apply/' . $token,
                 ],
             ]
         );
@@ -650,8 +651,7 @@ final class ApiClientTest extends TestCase
                 "amount": 185460,
                 "interest": 0,
                 "repayable": 185460,
-                "summary": "This loan comprises of a deposit today of \u00a3463.65, followed by 3 monthly payment(s) of \u00a3463.65. The final payment will be on '
-            . $today->copy()->addMonths(3)->format('d\/m\/Y') . '.",
+                "summary": "This loan comprises of 4 monthly payments of \u00a3463.65, with the first taken immediately on setup.",
                 "schedule": [
                     {
                         "amount": 46365,
@@ -943,6 +943,7 @@ final class ApiClientTest extends TestCase
                     'pa_ref'           => '1-548',
                     'requires_invoice' => true,
                     'has_invoice'      => true,
+                    'last_accessed_at' => '2025-11-12T12:00:00+00:00'
                 ],
             ]
         );
